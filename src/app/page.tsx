@@ -1,11 +1,23 @@
 "use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import Splash from "./_components/Splash";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
   const { data: session, status } = useSession();
 
-  if (status === "loading") return <p>Loading...</p>;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (status === "loading" || isLoading) return <Splash />;
 
   return (
     <div>
@@ -15,15 +27,12 @@ export default function Page() {
           <button onClick={() => signOut()}>Sign Out</button>
         </>
       ) : (
-        <>
-          <p>Not signed in</p>
-          <br />
-          <button onClick={() => signIn("kakao")}>Sign In with Kakao</button>
-          <br />
-          <button onClick={() => signIn("naver")}>Sign In with Naver</button>
-          <br />
-          <button onClick={() => signIn("github")}>Sign In with GitHub</button>
-        </>
+        <div className="flex flex-col">
+          <button onClick={() => router.push("/auth")}>휴대폰 번호로 시작하기</button>
+          <button onClick={() => signIn("kakao")}>카카오로 시작하기</button>
+          <button onClick={() => signIn("naver")}>네이버로 시작하기</button>
+          <button onClick={() => signIn("google")}>구글로 시작하기</button>
+        </div>
       )}
     </div>
   );

@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="mx-auto flex max-w-[600px] flex-col">
+      <body className="mx-auto flex max-w-[375px] flex-col">
         <NextAuthProvider>
           <QueryClientProvider>
             {children}

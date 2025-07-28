@@ -6,16 +6,26 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "shadcn": "shadcn-ui"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
     "@tanstack/react-query": "^5.83.0",
     "axios": "^1.11.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "iamport-react-native": "^2.0.15",
+    "init": "^0.1.2",
+    "lucide-react": "^0.526.0",
     "motion": "^12.23.9",
     "next": "15.4.4",
     "next-auth": "^4.24.11",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hook-form": "^7.61.1",
+    "tailwind-merge": "^3.3.1",
+    "vaul": "^1.1.2",
     "zustand": "^5.0.6"
   },
   "devDependencies": {
@@ -28,7 +38,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.4",
+    "shadcn-ui": "^0.9.5",
     "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.6",
     "typescript": "^5"
   }
 }
