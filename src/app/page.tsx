@@ -1,9 +1,11 @@
 "use client";
 
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Splash from "./_components/Splash";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import GuardianHome from "./_components/home/GuardianHome";
+import PatientHome from "./_components/home/PatientHome";
 
 export default function Page() {
   const router = useRouter();
@@ -23,8 +25,8 @@ export default function Page() {
     <div>
       {status === "authenticated" ? (
         <>
-          <p>Welcome, {session?.user?.name}</p>
-          <button onClick={() => signOut()}>Sign Out</button>
+          {/* {session?.user?.type === "guardian" && <GuardianHome />}
+          {session?.user?.type === "patient" && <PatientHome />} */}
         </>
       ) : (
         <div className="flex flex-col">
