@@ -1,7 +1,14 @@
+"use client";
+
+import { useFormContext } from "react-hook-form";
+
 export default function VerifyForm() {
+  const { register } = useFormContext();
+
   return (
     <div>
-      <input />
+      인증번호
+      <input type="text" {...register("code", { required: true })} />
     </div>
   );
 }

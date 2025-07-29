@@ -1,13 +1,14 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 interface IPhoneAuthForm {
-  goNext: () => void;
+  showResend: boolean;
+  resend: () => void;
 }
 
-export default function PhoneAuthForm({ goNext }: IPhoneAuthForm) {
-  const { register, setValue } = useForm();
+export default function PhoneAuthForm({ showResend, resend }: IPhoneAuthForm) {
+  const { register, setValue } = useFormContext();
 
   return (
     <div>
@@ -16,18 +17,20 @@ export default function PhoneAuthForm({ goNext }: IPhoneAuthForm) {
           type="text"
           inputMode="numeric"
           pattern="\d*"
-          maxLength={10}
+          maxLength={11}
           onInput={(e) => {
             e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
           }}
-          {...register("phone", { required: true, pattern: /^\d{10}$/ })}
+          {...register("receiver", { required: true, pattern: /^\d{11}$/ })}
         />
         <button onClick={() => setValue("phone", "")}>x</button>
       </div>
 
-      <button className="border border-black" onClick={goNext}>
-        재전송
-      </button>
+      {showResend && (
+        <button className="border border-black" onClick={resend}>
+          재전송
+        </button>
+      )}
     </div>
   );
 }

@@ -1984,11 +1984,6 @@ hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
-iamport-react-native@^2.0.15:
-  version "2.0.15"
-  resolved "https://registry.yarnpkg.com/iamport-react-native/-/iamport-react-native-2.0.15.tgz#6c17739de81dfa5ed9c741bb5105daa59ae31174"
-  integrity sha512-XFzPbn4t2o7dWQPSxAIyx670JEstPQ+GFS+xYaMuGAY7obh7KyIufYZjGUxcQKu6zipgLYv9DTClI0/wj+P9TA==
-
 ignore@^5.2.0:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.3.2.tgz#3cd40e729f3643fd87cb04e50bf0eb722bc596f5"
